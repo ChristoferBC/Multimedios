@@ -104,7 +104,23 @@ nav a.active {
   flex-direction: column;
   justify-content: center;
 }
+#image {
+  width: auto;
+  max-width: 100%;     /* Que no sobresalga del contenedor */
+  height: 25%;       /* Tamaño grande para PC */
+  display: block;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: contain;
+  transition: height 0.3s ease;
+}
 
+@media (max-width: 768px) {
+  #image {
+    height: 25%;      /* Tamaño pequeño en móvil */
+  }
+}
 /* Carrusel alineado */
 .carousel {
   flex: 1 1 45%;
