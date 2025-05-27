@@ -1,0 +1,651 @@
+/* ==================== RESET & BASE ==================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+}
+
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #fff9d1, #ffee99);
+  color: #a07900;
+}
+
+/* ==================== HEADER ==================== */
+header {
+  background-color: #B38E1B;
+  padding: 10px 3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  position: fixed; /* <-- CAMBIO CLAVE */
+  top: 0;
+  left: 0;
+  width: 100%; /* Asegura que cubra todo el ancho */
+  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+header.scrolled {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  max-height: 50px;
+  width: auto;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+nav a {
+  color: #a07900;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a.active {
+  color: #fff;
+  background-color: #a07900;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* ==================== HERO/INICIO ==================== */
+
+.container-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Sección de texto */
+#inicio {
+  flex: 1 1 45%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Carrusel alineado */
+.carousel {
+  flex: 1 1 45%;
+  min-width: 280px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+/* Carrusel interno */
+.slides {
+  display: flex;
+  width: 300%; /* 3 imágenes, cada una ocupa 100% del carrusel */
+  animation: slide 12s infinite;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Cada slide (link) debe ocupar el 1/3 del total para que la animación funcione */
+.slides a {
+  flex: 0 0 33.3333%; /* 1/3 del total */
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Imagen ocupa todo el link */
+.slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Animación automática */
+@keyframes slide {
+  0% { transform: translateX(0); }
+  33.33% { transform: translateX(-33.3333%); }
+  66.66% { transform: translateX(-66.6666%); }
+  100% { transform: translateX(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel {
+    aspect-ratio: 3 / 2;
+    width: 100%;
+  }
+}
+
+
+
+/* ======================================== */
+
+#inicio {
+  padding-top: 80px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  background-color: #FEF3C7;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 30px;
+}
+
+.text {
+  flex: 1 1 350px;
+  max-width: 600px;
+}
+
+.text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.text p {
+  font-size: 1rem;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.buttons .btn {
+  display: inline-block;
+  background-color: #ffdb3a;
+  color: #5a4600;
+  text-decoration: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.buttons .btn:hover {
+  background-color: #ffd000;
+  transform: translateY(-2px);
+}
+
+.buttons .btn.secondary {
+  background-color: transparent;
+  border: 2px solid #ffdb3a;
+  color: #a07900;
+}
+
+.buttons .btn.secondary:hover {
+  background-color: #fff3a4;
+  transform: translateY(-2px);
+}
+@media (max-width: 600px) {
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .buttons .btn {
+    width: 90%; /* Más ancho para evitar desbordes */
+    text-align: center;
+    white-space: nowrap; /* Evita que se rompa en dos líneas */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Opcional: corta texto si llega a ser muy largo */
+  }
+}
+
+
+
+.image {
+  flex: 1 1 300px;
+  max-width: 500px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==================== INGREDIENTES ==================== */
+.ingredients-section {
+  padding: 40px 20px;
+  background-color: #fffdf2;
+  text-align: center;
+}
+
+.ingredients-section h2 {
+  font-size: 2rem;
+  color: #a07900;
+  margin-bottom: 20px;
+}
+
+.table-container {
+  max-width: 960px;
+  margin: 0 auto;
+  background: #fffef6;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  color: #333;
+}
+
+thead {
+  background-color: #fff9cc;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #f0e7b1;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #fffde8;
+}
+
+.note {
+  margin-top: 20px;
+  background-color: #fff4c2;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #805d00;
+  text-align: left;
+}
+
+/* ==================== PREPARACIÓN ==================== */
+#preparacion {
+  padding: 2rem;
+  background-color: #fffbe9;
+}
+
+#preparacion h2 {
+  text-align: center;
+  color: #a07900;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.step {
+  background-color: #fff9cc;
+  border-left: 6px solid #fcd307;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+}
+
+.step::before {
+  content: counter(step-counter);
+  counter-increment: step-counter;
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  background-color: #fcd307;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.steps-container {
+  counter-reset: step-counter;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.text-box {
+  padding: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.text-box {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  flex: 1;
+  transition: transform 0.3s ease;
+}
+
+.text-box:hover {
+  transform: scale(1.05);
+}
+
+.text-box h3 {
+  color: #a07900;
+  margin-bottom: 0.5rem;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+/* ==================== CONTACTO ==================== */
+#Contactenos {
+  background: #ffffff;
+  padding: 2rem;
+  margin: 3rem auto;
+  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#Contactenos h1 {
+  color: #c59f00;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+#Contactenos p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.subscription-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.subscription-form label {
+  text-align: left;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+.subscription-form input[type="text"],
+.subscription-form input[type="email"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 0.25rem;
+}
+
+.subscription-form fieldset {
+  border: none;
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.subscription-form legend {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.subscription-form button {
+  background-color: #fcd307;
+  color: #333;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscription-form button:hover {
+  background-color: #e6bb00;
+}
+
+/* ==================== FOOTER ==================== */
+.site-footer {
+  background-color: #b48f16;
+  color: #fff;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-info,
+.footer-social,
+.footer-links {
+  flex: 1 1 250px;
+}
+
+.footer-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-info p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: #f1f1f1;
+}
+
+.footer-social h4 {
+  margin-bottom: 0.5rem;
+}
+.social-icons a {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: underline;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  text-decoration: none;
+}
+
+/* ==================== ANIMACIONES ==================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-on-scroll .fade-in {
+    animation-play-state: paused;
+  }
+
+  .animate-on-scroll:has(.fade-in:is(:in-viewport)) .fade-in {
+    animation-play-state: running;
+  }
+}
+
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 3s steps(30, end) forwards;
+}
+
+@keyframes typing {
+  to {
+    width: 100%;
+  }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .container,
+  .step,
+  .reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav {
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buttons button {
+    width: 80%;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 15px;
+  }
+
+  td {
+    padding: 10px;
+    text-align: right;
+    position: relative;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    text-align: left;
+    font-weight: bold;
+    color: #a07900;
+  }
+
+  .note {
+    text-align: center;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-social,
+  .footer-links {
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  #Contactenos {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+}
