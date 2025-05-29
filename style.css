@@ -35,7 +35,7 @@ html, body {
 
 /* ==================== HEADER ==================== */
 header {
-  background-color: #B38E1B;
+  background-color: #e6c973;
   padding: 10px 3%;
   display: flex;
   justify-content: space-between;
@@ -64,8 +64,9 @@ header.scrolled {
   max-height: 50px;
   width: auto;
   object-fit: contain;
-  margin-right: 10px;
+  margin: 8px 0; 
 }
+
 
 nav {
   display: flex;
@@ -103,6 +104,7 @@ nav a.active {
   display: flex;
   flex-direction: column;
   justify-content: center;
+   padding-top: 80px;
 }
 #image {
   width: auto;
@@ -116,11 +118,15 @@ nav a.active {
   transition: height 0.3s ease;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   #image {
-    height: 25%;      /* Tamaño pequeño en móvil */
+    margin-top: 80px; /* Ajusta según el alto real del header */
+    height: auto;     /* Mejora el escalado de la imagen */
+    max-height: 150px;
+     padding-top: 100px; /* más espacio en móviles si el header cubre más */
   }
 }
+
 /* Carrusel alineado */
 .carousel {
   flex: 1 1 45%;
